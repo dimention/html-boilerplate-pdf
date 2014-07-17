@@ -1,36 +1,29 @@
-markdown-pdf [![Build Status](https://travis-ci.org/alanshaw/markdown-pdf.svg)](https://travis-ci.org/alanshaw/markdown-pdf) [![Dependency Status](https://david-dm.org/alanshaw/markdown-pdf.svg)](https://david-dm.org/alanshaw/markdown-pdf) [![Coverage Status](https://img.shields.io/coveralls/alanshaw/markdown-pdf.svg)](https://coveralls.io/r/alanshaw/markdown-pdf?branch=master)
+html-boilerplate-pdf [![Build Status](https://travis-ci.org/cabbiepete/html-boilerplate-pdf.svg)](https://travis-ci.org/cabbiepete/html-boilerplate-pdf) [![Dependency Status](https://david-dm.org/cabbiepete/html-boilerplate-pdf.svg)](https://david-dm.org/cabbiepete/html-boilerplate-pdf) [![Coverage Status](https://img.shields.io/coveralls/cabbiepete/html-boilerplate-pdf.svg)](https://coveralls.io/r/cabbiepete/html-boilerplate-pdf?branch=master)
 ===
 
-Node module that converts Markdown files to PDFs.
+Node module that converts HTML body documents strings to PDFs.
 
-The PDF looks great because it is styled by HTML5 Boilerplate. What? - Yes! Your Markdown is first converted to HTML, then pushed into the HTML5 Boilerplate `index.html`. Phantomjs renders the page and saves it to a PDF. You can even customise the style of the PDF by passing an optional path to your CSS _and_ you can pre-process your markdown file before it is converted to a PDF by passing in a pre-processing function, for templating.
+Using same process and similar options to [html-boilerplate-pdf](https://github.com/alanshaw/markdown-pdf)
+
+The PDF looks great because it is styled by HTML5 Boilerplate. What? - Yes! Your HTML is pushed into the HTML5 Boilerplate `index.html`. Phantomjs renders the page and saves it to a PDF. You can even customise the style of the PDF by passing an optional path to your CSS _and_ you can pre-process your markdown file before it is converted to a PDF by passing in a pre-processing function, for templating.
 
 Getting started
 ---
 
-    npm install markdown-pdf
+    npm install html-boilerplate-pdf
 
 Example usage
----
+----
 
 ```javascript
-var markdownpdf = require("markdown-pdf")
-  , fs = require("fs")
-
-fs.createReadStream("/path/to/document.md")
-  .pipe(markdownpdf())
-  .pipe(fs.createWriteStream("/path/to/document.pdf"))
-
-// --- OR ---
-
-markdownpdf().from("/path/to/document.md").to("/path/to/document.pdf", function () {
+htmlBoilerplatePDF().from.string(html).to("/path/to/document.pdf", function () {
   console.log("Done")
 })
 ```
 
 ### Options
 
-Pass an options object (`markdownpdf({/* options */})`) to configure the output.
+Pass an options object (`htmlBoilerplatePDF({/* options */})`) to configure the output.
 
 #### options.phantomPath
 Type: `String`
@@ -40,13 +33,13 @@ Path to phantom binary
 
 #### options.cssPath
 Type: `String`
-Default value: `[module path]/markdown-pdf/pdf.css`
+Default value: `[module path]/pdf.css`
 
 Path to custom CSS file, relative to the current directory
 
 #### options.highlightCssPath
 Type: `String`
-Default value: `[module path]/markdown-pdf/highlight.css`
+Default value: `[module path]/highlight.css`
 
 Path to custom highlight CSS file (for code highlighting), relative to the current directory
 
@@ -80,48 +73,42 @@ Default value: `1000`
 
 Delay in millis before rendering the PDF (give HTML and CSS a chance to load)
 
-#### options.preProcessMd
-Type: `Function`
-Default value: `function () { return through() }`
-
-A function that returns a [through stream](https://npmjs.org/package/through) that transforms the markdown before it is converted to HTML.
-
 #### options.preProcessHtml
 Type: `Function`
 Default value: `function () { return through() }`
 
-A function that returns a [through stream](https://npmjs.org/package/through) that transforms the HTML before it is converted to markdown.
+A function that returns a [through stream](https://npmjs.org/package/through) that transforms the HTML before it is converted to PDF.
 
 API
 ---
 
 ### from.path(path, opts) / from(path, opts)
 
-Create a readable stream from `path` and pipe to markdown-pdf. `path` can be a single path or array of paths.
+Create a readable stream from `path` and pipe to html-boilerplate-pdf. `path` can be a single path or array of paths.
 
 ### from.string(string)
 
-Create a readable stream from `string` and pipe to markdown-pdf. `string` can be a single string or array of strings.
+Create a readable stream from `string` and pipe to html-boilerplate-pdf. `string` can be a single string or array of strings.
 
 ### concat.from.paths(paths, opts)
 
-Create and concatinate readable streams from `paths` and pipe to markdown-pdf.
+Create and concatinate readable streams from `paths` and pipe to html-boilerplate-pdf.
 
 ### concat.from.strings(strings, opts)
 
-Create and concatinate readable streams from `strings` and pipe to markdown-pdf.
+Create and concatinate readable streams from `strings` and pipe to html-boilerplate-pdf.
 
 ### to.path(path, cb) / to(path, cb)
 
-Create a writeable stream to `path` and pipe output from markdown-pdf to it. `path` can be a single path, or array of output paths if you specified an array of inputs. The callback function `cb` will be invoked when data has finished being written.
+Create a writeable stream to `path` and pipe output from html-boilerplate-pdf to it. `path` can be a single path, or array of output paths if you specified an array of inputs. The callback function `cb` will be invoked when data has finished being written.
 
 ### to.buffer(opts, cb)
 
-Create a [concat-stream](https://npmjs.org/package/concat-stream) and pipe output from markdown-pdf to it. The callback function `cb` will be invoked when the buffer has been created.
+Create a [concat-stream](https://npmjs.org/package/concat-stream) and pipe output from html-boilerplate-pdf to it. The callback function `cb` will be invoked when the buffer has been created.
 
 ### to.string(opts, cb)
 
-Create a [concat-stream](https://npmjs.org/package/concat-stream) and pipe output from markdown-pdf to it. The callback function `cb` will be invoked when the string has been created.
+Create a [concat-stream](https://npmjs.org/package/concat-stream) and pipe output from html-boilerplate-pdf to it. The callback function `cb` will be invoked when the string has been created.
 
 More examples
 ---
@@ -129,12 +116,12 @@ More examples
 ### From string to path
 
 ```javascript
-var markdownpdf = require("markdown-pdf")
+var htmlBoilerplatePDF = require("html-boilerplate-pdf")
 
 var md = "foo===\n* bar\n* baz\n\nLorem ipsum dolor sit"
   , outputPath = "/path/to/doc.pdf"
 
-markdownpdf().from.string(md).to(outputPath, function () {
+htmlBoilerplatePDF().from.string(html).to(outputPath, function () {
   console.log("Created", outputPath)
 })
 ```
@@ -142,12 +129,12 @@ markdownpdf().from.string(md).to(outputPath, function () {
 ### From multiple paths to multiple paths
 
 ```javascript
-var markdownpdf = require("markdown-pdf")
+var htmlBoilerplatePDF = require("html-boilerplate-pdf")
 
-var mdDocs = ["home.md", "about.md", "contact.md"]
-  , pdfDocs = mdDocs.map(function (d) { return "out/" + d.replace(".md", ".pdf") })
+var htmlDocs = ["home.html", "about.html", "contact.html"]
+  , pdfDocs = mdDocs.map(function (d) { return "out/" + d.replace(".html", ".pdf") })
 
-markdownpdf().from(mdDocs).to(pdfDocs, function () {
+htmlBoilerplatePDF().from(htmlDocs).to(pdfDocs, function () {
   pdfDocs.forEach(function (d) { console.log("Created", d) })
 })
 ```
@@ -155,25 +142,25 @@ markdownpdf().from(mdDocs).to(pdfDocs, function () {
 ### Concat from multiple paths to single path
 
 ```javascript
-var markdownpdf = require("markdown-pdf")
+var htmlBoilerplatePDF = require("html-boilerplate-pdf")
 
-var mdDocs = ["chapter1.md", "chapter2.md", "chapter3.md"]
+var htmlDocs = ["chapter1.html", "chapter2.html", "chapter3.html"]
   , bookPath = "/path/to/book.pdf"
 
-markdownpdf().concat.from(mdDocs).to(bookPath, function () {
+htmlBoilerplatePDF().concat.from(htmlDocs).to(bookPath, function () {
   console.log("Created", bookPath)
 })
 ```
 
-### Transform markdown before conversion
+### Transform html before conversion
 
 ```javascript
-var markdownpdf = require("markdown-pdf")
+var htmlBoilerplatePDF = require("html-boilerplate-pdf")
   , split = require("split")
   , through = require("through")
   , duplexer = require("duplexer")
 
-function preProcessMd () {
+function preProcessHTML () {
   // Split the input stream by lines
   var splitter = split()
 
@@ -186,8 +173,8 @@ function preProcessMd () {
   return duplexer(splitter, replacer)
 }
 
-markdownpdf({preProcessMd: preProcessMd})
-  .from("/path/to/document.md")
+htmlBoilerplatePDF({preProcessHTML: preProcessHTML})
+  .from("/path/to/document.html")
   .to("/path/to/document.pdf", function () { console.log("Done") })
 ```
 
@@ -196,16 +183,16 @@ CLI interface
 
 ### Installation
 
-To use markdown-pdf as a standalone program from the terminal run
+To use html-boilerplate-pdf as a standalone program from the terminal run
 
 ```sh
-npm install -g markdown-pdf
+npm install -g html-boilerplate-pdf
 ```
 
 ### Usage
 
 ```sh
-Usage: markdown-pdf [options] <markdown-file-path>
+Usage: html-boilerplate-pdf [options] <markdown-file-path>
 
 Options:
 
@@ -222,3 +209,7 @@ Options:
   -d, --render-delay [millis]            Delay before rendering the PDF (give HTML and CSS a chance to load)
   -o, --out [path]                       Path of where to save the PDF
 ```
+
+### TODO
+
+- convert tests from markdown-pdf to this module

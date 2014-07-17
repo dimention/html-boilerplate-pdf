@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-var markdownpdf = require('../')
-  , program = require('commander')
+var htmlBoilerplatePDF = require('../');
+var program = require('commander');
 
 program.version(require('../package.json').version)
-  .usage('[options] <markdown-file-path>')
-  .option('<markdown-file-path>', "Path of the markdown file to convert")
+  .usage('[options] <html-file-path>')
+  .option('<html-file-path>', "Path of the HTML file to convert")
   .option('-p, --phantom-path [path]', "Path to phantom binary")
   .option('-h, --runnings-path [path]', "Path to runnings (header, footer)")
   .option('-s, --css-path [path]', "Path to custom CSS file")
@@ -15,26 +15,26 @@ program.version(require('../package.json').version)
   .option('-b, --paper-border [measurement]', "Supported dimension units are: 'mm', 'cm', 'in', 'px'")
   .option('-d, --render-delay [millis]', "Delay before rendering the PDF (give HTML and CSS a chance to load)")
   .option('-o, --out [path]', "Path of where to save the PDF")
-  .parse(process.argv)
+  .parse(process.argv);
 
-if (program.args.length === 0) program.help()
+if (program.args.length === 0) program.help();
 
-program.out = program.out || program.args[0].replace(/\.m(ark)?d(own)?/gi, "") + ".pdf"
+program.out = program.out || program.args[0].replace(/\.html-boilerplate-pdf/gi, "") + ".pdf";
 
 var opts = {
-    phantomPath: program.phantomPath
-  , runningsPath: program.runningsPath
-  , cssPath: program.cssPath
-  , highlightCssPath: program.highlightCssPath
-  , paperFormat: program.paperFormat
-  , paperOrientation: program.paperOrientation
-  , paperBorder: program.paperBorder
-  , renderDelay: program.renderDelay
-}
+  phantomPath: program.phantomPath,
+  runningsPath: program.runningsPath,
+  cssPath: program.cssPath,
+  highlightCssPath: program.highlightCssPath,
+  paperFormat: program.paperFormat,
+  paperOrientation: program.paperOrientation,
+  paperBorder: program.paperBorder,
+  renderDelay: program.renderDelay
+};
 
-markdownpdf(opts).from(program.args[0]).to(program.out, function (er) {
+htmlBoilerplatePDF(opts).from(program.args[0]).to(program.out, function (er) {
   if (er) {
-    console.error(er)
-    return process.exit(-1)
+    console.error(er);
+    return process.exit(-1);
   }
-})
+});
