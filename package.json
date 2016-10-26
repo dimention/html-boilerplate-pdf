@@ -1,6 +1,6 @@
 {
   "name": "html-boilerplate-pdf",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "description": "HTML to PDF converter",
   "main": "index.js",
   "scripts": {
