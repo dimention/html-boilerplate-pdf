@@ -164,7 +164,7 @@ function preProcessHTML () {
   // Split the input stream by lines
   var splitter = split()
 
-  // Replace occurences of "foo" with "bar"
+  // Replace occurrences of "foo" with "bar"
   var replacer = through(function (data) {
     this.queue(data.replace(/foo/g, "bar") + "\n")
   })
@@ -209,7 +209,3 @@ Options:
   -d, --render-delay [millis]            Delay before rendering the PDF (give HTML and CSS a chance to load)
   -o, --out [path]                       Path of where to save the PDF
 ```
-
-### TODO
-
-- convert tests from markdown-pdf to this module
