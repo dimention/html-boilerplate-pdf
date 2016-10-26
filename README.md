@@ -5,7 +5,7 @@ Node module that converts HTML body documents strings to PDFs.
 
 Using same process and similar options to [html-boilerplate-pdf](https://github.com/alanshaw/markdown-pdf)
 
-The PDF looks great because it is styled by HTML5 Boilerplate. What? - Yes! Your HTML is pushed into the HTML5 Boilerplate `index.html`. Phantomjs renders the page and saves it to a PDF. You can even customise the style of the PDF by passing an optional path to your CSS _and_ you can pre-process your markdown file before it is converted to a PDF by passing in a pre-processing function, for templating.
+The PDF looks great because it is styled by HTML5 Boilerplate. What? - Yes! Your HTML is pushed into the HTML5 Boilerplate `index.html`. Phantomjs renders the page and saves it to a PDF. You can even customise the style of the PDF by passing an optional path to your CSS _and_ you can pre-process your html file before it is converted to a PDF by passing in a pre-processing function, for templating.
 
 Getting started
 ---
@@ -192,13 +192,13 @@ npm install -g html-boilerplate-pdf
 ### Usage
 
 ```sh
-Usage: html-boilerplate-pdf [options] <markdown-file-path>
+Usage: html-boilerplate-pdf [options] <html-file-path>
 
 Options:
 
   -h, --help                             output usage information
   -V, --version                          output the version number
-  <markdown-file-path>                   Path of the markdown file to convert
+  <html-file-path>                       Path of the html file to convert
   -p, --phantom-path [path]              Path to phantom binary
   -h, --runnings-path [path]             Path to runnings (header, footer)
   -s, --css-path [path]                  Path to custom CSS file
