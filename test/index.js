@@ -10,7 +10,7 @@ tmp.setGracefulCleanup();
 describe("htmlBoilerplatePDF", function() {
 
   it("should generate a nonempty PDF from ipsum.html", function (done) {
-    this.timeout(5000);
+    this.timeout(25000);
 
     tmp.file({postfix: ".pdf"}, function (er, tmpPdfPath, tmpPdfFd) {
       assert.ifError(er);
@@ -31,7 +31,7 @@ describe("htmlBoilerplatePDF", function() {
   });
 
   it("should have a header and footer", function (done) {
-    this.timeout(5000);
+    this.timeout(25000);
 
     tmp.file({postfix: ".pdf"}, function (er, tmpPdfPath, tmpPdfFd) {
       assert.ifError(er);
@@ -62,7 +62,7 @@ describe("htmlBoilerplatePDF", function() {
   });
 
   it("should call preProcessHtml hook", function (done) {
-    this.timeout(5000);
+    this.timeout(25000);
 
     var writeCount = 0;
     var preProcessHtml = function () { return through(function (data) { writeCount++; this.queue(data); }); };
@@ -78,7 +78,7 @@ describe("htmlBoilerplatePDF", function() {
   });
 
   it("should concatenate source files", function (done) {
-    this.timeout(5000);
+    this.timeout(25000);
 
     var files = [
       __dirname + "/fixtures/first.html",
@@ -104,7 +104,7 @@ describe("htmlBoilerplatePDF", function() {
   });
 
   it("should write to multiple paths when converting multiple files", function (done) {
-    this.timeout(5000);
+    this.timeout(25000);
 
     var files = [
       __dirname + "/fixtures/first.html",
