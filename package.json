@@ -28,24 +28,24 @@
     }
   ],
   "dependencies": {
-    "phantomjs": "~2.1.7",
-    "tmp": "~0.0.18",
     "commander": "^2.2.0",
-    "through": "~2.3.4",
-    "extend": "^3.0.0",
     "duplexer": "~0.1.1",
+    "extend": "^3.0.0",
+    "phantomjs": "~2.1.7",
+    "pygmentize-bundled": "~2.3.0",
     "stream-from-to": "~1.4.0",
-    "pygmentize-bundled": "~2.3.0"
+    "through": "~2.3.4",
+    "tmp": "0.0.31"
   },
   "devDependencies": {
-    "mocha": "^3.1.2",
+    "mocha": "^3.2.0",
     "mocha-lcov-reporter": "^1.2.0",
-    "coveralls": "^2.10.0",
+    "coveralls": "^2.11.15",
     "jscoverage": "^0.6.0",
     "pdf-text": "^0.4.0"
   },
   "engines": {
-    "node": "~0.10.0"
+    "node": ">= 0.10.0"
   },
   "bin": {
     "html-boilerplate-pdf": "bin/html-boilerplate-pdf"
