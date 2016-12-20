@@ -45,7 +45,7 @@
     "pdf-text": "^0.4.0"
   },
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 4"
   },
   "bin": {
     "html-boilerplate-pdf": "bin/html-boilerplate-pdf"
