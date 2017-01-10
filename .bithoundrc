@@ -1,0 +1,13 @@
+{
+  "test": [
+    "**/test/**"
+  ],
+  "dependencies": {
+    "unused-ignores": [
+      "commander"
+    ]
+  },
+  "critics": {
+    "wc": { "limit": 5000 }
+  }
+}

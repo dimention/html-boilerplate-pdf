@@ -1,4 +1,4 @@
-html-boilerplate-pdf [![Build Status](https://travis-ci.org/cabbiepete/html-boilerplate-pdf.svg)](https://travis-ci.org/cabbiepete/html-boilerplate-pdf) [![Dependency Status](https://david-dm.org/cabbiepete/html-boilerplate-pdf.svg)](https://david-dm.org/cabbiepete/html-boilerplate-pdf) [![Coverage Status](https://img.shields.io/coveralls/cabbiepete/html-boilerplate-pdf.svg)](https://coveralls.io/r/cabbiepete/html-boilerplate-pdf?branch=master)
+html-boilerplate-pdf [![Build Status](https://travis-ci.org/cabbiepete/html-boilerplate-pdf.svg)](https://travis-ci.org/cabbiepete/html-boilerplate-pdf) [![bitHound Dependencies](https://www.bithound.io/github/cabbiepete/html-boilerplate-pdf/badges/dependencies.svg)](https://www.bithound.io/github/cabbiepete/html-boilerplate-pdf/master/dependencies/npm) [![Coverage Status](https://img.shields.io/coveralls/cabbiepete/html-boilerplate-pdf.svg)](https://coveralls.io/r/cabbiepete/html-boilerplate-pdf?branch=master)
 ===
 
 Node module that converts HTML body documents strings to PDFs.
