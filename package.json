@@ -30,7 +30,7 @@
     "commander": "^2.2.0",
     "duplexer": "~0.1.1",
     "extend": "^3.0.0",
-    "phantomjs": "~2.1.7",
+    "phantomjs-prebuilt": "~2.1.14",
     "pygmentize-bundled": "~2.3.0",
     "stream-from-to": "~1.4.0",
     "through": "~2.3.4",
