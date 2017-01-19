@@ -4,6 +4,6 @@ version: v1.7.0
 ignore:
   'npm:bl:20160119':
     - pygmentize-bundled > bl:
-        reason: None given
+        reason: 'No fix exists have sent pull request to package owner'
         expires: '2017-02-18T23:29:56.444Z'
 patch: {}
