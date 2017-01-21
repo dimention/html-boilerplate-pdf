@@ -1,0 +1,9 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.0
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:bl:20160119':
+    - pygmentize-bundled > bl:
+        reason: 'No fix exists have sent pull request to package owner'
+        expires: '2017-02-18T23:29:56.444Z'
+patch: {}
