@@ -6,6 +6,9 @@ ignore:
     - pygmentize-bundled > bl:
         reason: No fix exists have sent pull request to package owner
         expires: '2017-02-18T23:29:56.444Z'
+    - pygmentize-bundled > bl:
+        reason: None given
+        expires: '2017-09-30T01:14:57.069Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:ms:20170412':
