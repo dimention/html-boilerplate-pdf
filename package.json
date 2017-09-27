@@ -37,7 +37,7 @@
     "stream-from-to": "~1.4.0",
     "through": "~2.3.4",
     "tmp": "0.0.31",
-    "snyk": "^1.40.2"
+    "snyk": "^1.41.1"
   },
   "devDependencies": {
     "coveralls": "^2.11.15",

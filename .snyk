@@ -14,3 +14,6 @@ patch:
   'npm:ms:20170412':
     - phantomjs-prebuilt > extract-zip > debug > ms:
         patched: '2017-08-16T23:07:04.220Z'
+  'npm:debug:20170905':
+    - phantomjs-prebuilt > extract-zip > debug:
+        patched: '2017-09-27T23:07:09.521Z'
